@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
-    unique: true,
+    unique: [true, "Try any other email, this email is already registered!"],
   },
 
   password: {
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 
-  phoneNumber: {
+  contactNumber: {
     type: Number,
     required: true,
   },

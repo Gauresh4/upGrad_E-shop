@@ -3,13 +3,19 @@ const bcrypt = require("bcryptjs");
 
 exports.signup = async (req, res) => {
   const hashedPass = bcrypt.hashSync(req.body.password, 10);
+
+  if (req.body.contactNumber.toString().length != 10) {
+    return res.status(403).send({
+      message: "Invalid contact number!",
+    });
+  }
   const userObj = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     userName: req.body.userName,
     email: req.body.email,
     password: hashedPass,
-    phoneNumber: req.body.phoneNumber,
+    contactNumber: req.body.contactNumber,
     role: req.body.role,
   };
   try {
@@ -19,7 +25,7 @@ exports.signup = async (req, res) => {
       lastName: userCreated.lastName,
       userName: userCreated.userName,
       email: userCreated.email,
-      phoneNumber: userCreated.phoneNumber,
+      contactNumber: userCreated.contactNumber,
       role: userCreated.role,
       createdAt: userCreated.createdAt,
       updatedAt: userCreated.updatedAt,
