@@ -1,5 +1,5 @@
-const authController = require("../controllers/auth.controller");
-const authFunction = require("../middlewares/auth.middleware");
+const { signup, signin } = require("../controllers/auth.controller");
 module.exports = function (app) {
-  app.post("/users", authController.signup);
+  app.post("/users", signup);
+  app.post("/auth", signin);
 };

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const app = require("../E-SHOP/app");
-const serverConfigs = require("../E-SHOP/configs/server.configs");
-const dbConfigs = require("../E-SHOP/configs/db.configs");
+const app = require("./app");
+const serverConfigs = require("./configs/server.configs");
+const dbConfigs = require("./configs/db.configs");
 
 mongoose.connect(dbConfigs.DB_URL);
 
