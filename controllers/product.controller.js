@@ -104,13 +104,12 @@ exports.getProductCategories = async (req, res) => {
   }
 };
 
-exports.fetchById = async (req, res) => {
+exports.getProductById = async (req, res) => {
   try {
     const result = await productModel.find(
       { productId: req.params.id },
       { _id: 0, __v: 0 }
     );
-
     if (result.length === 0) {
       return res
         .status(400)
@@ -125,7 +124,7 @@ exports.fetchById = async (req, res) => {
   }
 };
 
-exports.updateProduct = async (req, res) => {
+exports.updateProductById = async (req, res) => {
   try {
     const productUpdated = await productModel.findOneAndUpdate(
       { productId: req.params.id },
