@@ -71,7 +71,7 @@ exports.signin = async (req, res) => {
   const isValidPassword = bcrypt.compareSync(password, isUserExists.password);
   if (!isValidPassword) {
     return res.status(403).json({
-      message: "'Invalid Credentials!",
+      message: "Invalid Credentials!",
     });
   }
 
@@ -82,9 +82,8 @@ exports.signin = async (req, res) => {
   var responseUser = {
     name: isUserExists.firstName + " " + isUserExists.lastName,
     email: isUserExists.email,
-    token: token,
     isAuthenticated: true,
   };
 
-  res.status(200).send(responseUser);
+  res.header("x-auth-token", token).status(200).send(responseUser);
 };

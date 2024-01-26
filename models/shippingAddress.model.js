@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const shippingAddressSchema = new mongoose.Schema({
-  zipCode: {
+  name: {
     type: String,
     required: true,
   },
-  state: {
+  contactNumber: {
     type: String,
     required: true,
   },
@@ -18,11 +18,11 @@ const shippingAddressSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phoneNumber: {
+  state: {
     type: String,
     required: true,
   },
-  name: {
+  zipCode: {
     type: String,
     required: true,
   },
